@@ -20,5 +20,4 @@ public class Customer {
     private String firstName;
     private String surname;
     private int creditId;
-
 }

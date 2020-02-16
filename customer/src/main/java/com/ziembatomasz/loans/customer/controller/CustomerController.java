@@ -3,9 +3,7 @@ package com.ziembatomasz.loans.customer.controller;
 import com.ziembatomasz.loans.customer.dto.CustomerDto;
 import com.ziembatomasz.loans.customer.service.CustomerService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +14,11 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    private List<CustomerDto> getCustomers() {
-        return customerService.getCustomer();
+    public List<CustomerDto> getCustomers() {
+        return customerService.getCustomers();
+    }
+    @PostMapping
+    public void createCustomer(@RequestBody CustomerDto customerDto){
+        customerService.createCustomer(customerDto);
     }
 }

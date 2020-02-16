@@ -12,12 +12,16 @@ import java.util.stream.Collectors;
 public class CustomerMapper {
     public List<CustomerDto> mapToCustomerDtoList(List<Customer> customerList) {
         return customerList.stream()
-                .map(this::mapToCustomer)
+                .map(this::mapToCustomerDto)
                 .collect(Collectors.toList());
     }
 
-    public CustomerDto mapToCustomer(Customer customer) {
+    public CustomerDto mapToCustomerDto(Customer customer) {
         return new CustomerDto(customer.getPesel(), customer.getFirstName(),
                 customer.getSurname(), customer.getCreditId());
+    }
+    public Customer mapToCustomer(CustomerDto customerDto){
+        return new Customer(customerDto.getPesel(), customerDto.getFirstName(),
+                customerDto.getSurname(), customerDto.getCreditId());
     }
 }
