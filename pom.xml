@@ -18,11 +18,18 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.33.0</version>
                 <configuration>
+                    <sourceDirectory>./</sourceDirectory>
                     <images>
                         <image>
                             <name>ziembatomasz/customer:${project.version}</name>
                             <build>
                                 <dockerFileDir></dockerFileDir>
+                            </build>
+                        </image>
+                        <image>
+                            <name>ziembatomasz/database:${project.version}</name>
+                            <build>
+                                <dockerFileDir>database</dockerFileDir>
                             </build>
                         </image>
                     </images>

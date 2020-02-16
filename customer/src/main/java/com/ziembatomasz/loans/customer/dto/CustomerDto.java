@@ -1,24 +1,16 @@
-package com.ziembatomasz.loans.customer.domain;
+package com.ziembatomasz.loans.customer.dto;
 
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Customer {
-    @Id
-    @NotNull
+
+public class CustomerDto {
     private String pesel;
     private String firstName;
     private String surname;
     private int creditId;
-
 }
