@@ -19,6 +19,7 @@ public class CustomerService {
         return customerMapper.mapToCustomerDtoList(customerRepository.findAll());
     }
     public void createCustomer(CustomerDto customerDto){
+
         Customer customer = customerMapper.mapToCustomer(customerDto);
         customerRepository.save(customer);
     }

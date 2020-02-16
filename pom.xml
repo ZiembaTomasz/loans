@@ -10,6 +10,7 @@
     <modules>
         <module>customer</module>
         <module>credit</module>
+        <module>product</module>
     </modules>
 
     <build>

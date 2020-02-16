@@ -1,12 +1,12 @@
-package com.ziembatomasz.loans.credit;
+package com.ziembatomasz.loans.product;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 //@SpringBootTest
-class CreditApplicationTests {
+class ProductApplicationTests {
 
-//	@Test
+	//@Test
 	void contextLoads() {
 	}
 
