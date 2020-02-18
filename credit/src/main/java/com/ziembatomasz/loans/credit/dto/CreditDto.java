@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class CreditDto {
-    private int id;
+    private Integer id;
     private String creditName;
 }

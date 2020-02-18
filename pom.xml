@@ -25,7 +25,19 @@
                         <image>
                             <name>ziembatomasz/customer:${project.version}</name>
                             <build>
-                                <dockerFileDir></dockerFileDir>
+                                <dockerFileDir>customer</dockerFileDir>
+                            </build>
+                        </image>
+                        <image>
+                            <name>ziembatomasz/credit:${project.version}</name>
+                            <build>
+                                <dockerFileDir>credit</dockerFileDir>
+                            </build>
+                        </image>
+                        <image>
+                            <name>ziembatomasz/product:${project.version}</name>
+                            <build>
+                                <dockerFileDir>product</dockerFileDir>
                             </build>
                         </image>
                         <image>

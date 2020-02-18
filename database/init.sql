@@ -16,7 +16,7 @@ create database credit;
 use credit;
 
 CREATE TABLE credit(
-    id INTEGER,
+    id INTEGER AUTO_INCREMENT,
     credit_name TEXT,
 
     PRIMARY KEY (id)
@@ -26,9 +26,11 @@ create database product;
 use product;
 
 CREATE TABLE product(
-    credit_name VARCHAR(100),
+    product_name VARCHAR(16),
     value INTEGER,
     credit_id INTEGER,
 
-    PRIMARY KEY (credit_name)
+    PRIMARY KEY (product_name)
+
 );
+

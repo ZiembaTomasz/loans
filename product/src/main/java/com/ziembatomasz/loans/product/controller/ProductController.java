@@ -2,20 +2,24 @@ package com.ziembatomasz.loans.product.controller;
 
 import com.ziembatomasz.loans.product.dto.ProductDto;
 import com.ziembatomasz.loans.product.service.ProductService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/products")
+@RequestMapping(value = "/product")
+@AllArgsConstructor
 public class ProductController {
     private ProductService productService;
+
     @GetMapping
-    private List<ProductDto>getProducts(){
-        return productService.getProducts();
+    public List<ProductDto> getProducts(@RequestParam List<Integer>creditIds) {
+        return productService.getProducts(creditIds);
     }
+
     @PostMapping
-    private void createProduct(@RequestBody ProductDto productDto){
+    public void createProduct(@RequestBody ProductDto productDto) {
         productService.createProduct(productDto);
     }
 }

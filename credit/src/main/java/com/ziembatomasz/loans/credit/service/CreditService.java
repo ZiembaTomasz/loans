@@ -5,7 +5,6 @@ import com.ziembatomasz.loans.credit.dto.CreditDto;
 import com.ziembatomasz.loans.credit.mapper.CreditMapper;
 import com.ziembatomasz.loans.credit.repository.CreditRepository;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,11 +14,13 @@ import java.util.List;
 public class CreditService {
     private CreditMapper creditMapper;
     private CreditRepository creditRepository;
-    public void createCredit(CreditDto creditDto){
+
+    public CreditDto createCredit(CreditDto creditDto) {
         Credit credit = creditMapper.mapToCredit(creditDto);
-        creditRepository.save(credit);
+        return creditMapper.mapToCreditDto(creditRepository.save(credit));
     }
-    public List<CreditDto>getCredits(){
+
+    public List<CreditDto> getCredits() {
         return creditMapper.mapToCreditDtoList(creditRepository.findAll());
     }
 }

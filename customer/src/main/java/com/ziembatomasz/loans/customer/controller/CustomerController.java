@@ -1,5 +1,6 @@
 package com.ziembatomasz.loans.customer.controller;
 
+import com.ziembatomasz.loans.customer.domain.Customer;
 import com.ziembatomasz.loans.customer.dto.CustomerDto;
 import com.ziembatomasz.loans.customer.service.CustomerService;
 import lombok.AllArgsConstructor;
@@ -14,8 +15,8 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public List<CustomerDto> getCustomers() {
-        return customerService.getCustomers();
+    public List<CustomerDto> getCustomers(@RequestParam List<Integer>creditsId) {
+        return customerService.getCustomers(creditsId);
     }
     @PostMapping
     public void createCustomer(@RequestBody CustomerDto customerDto){
