@@ -2,7 +2,7 @@
 
 # About
 
-##### REST API  microservices application uses Databases(MySQL) and Spring Boot. 
+##### REST API  microservices application uses Database(MySQL) and Spring Boot. 
 
 * getting credits, customers and products
 * creating credits, customers and products
@@ -49,7 +49,7 @@ http://localhost:8080/credit
             "value": 2000,
             "creditId": 1
         }
-    },
+ }
 ````
 * Succes Response: Code 200
 
@@ -175,6 +175,7 @@ http://localhost:8082/product?creditIds=1,2
 #### Create_Product
 ##### Method creates product:
 * POST
+* Example Request: 
 ````
 http://localhost:8082/product
 ````
