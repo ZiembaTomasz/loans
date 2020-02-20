@@ -22,6 +22,8 @@ CREATE TABLE credit(
     PRIMARY KEY (id)
 );
 
+INSERT INTO credit VALUES (7, "Axel Credit");
+
 create database product;
 use product;
 
@@ -31,6 +33,7 @@ CREATE TABLE product(
     credit_id INTEGER,
 
     PRIMARY KEY (product_name)
-
 );
+
+INSERT INTO product VALUES ("Fast Loan", 2000, 7);
 

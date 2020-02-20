@@ -9,15 +9,17 @@ import java.util.stream.Collectors;
 
 @Component
 public class CreditMapper {
-    public List<CreditDto>mapToCreditDtoList(List<Credit>creditList){
+    public List<CreditDto> mapToCreditDtoList(List<Credit> creditList) {
         return creditList.stream()
                 .map(this::mapToCreditDto)
                 .collect(Collectors.toList());
     }
-    public CreditDto mapToCreditDto(Credit credit){
+
+    public CreditDto mapToCreditDto(Credit credit) {
         return new CreditDto(credit.getId(), credit.getCreditName());
     }
-    public Credit mapToCredit(CreditDto creditDto){
+
+    public Credit mapToCredit(CreditDto creditDto) {
         return new Credit(creditDto.getId(), creditDto.getCreditName());
     }
 }

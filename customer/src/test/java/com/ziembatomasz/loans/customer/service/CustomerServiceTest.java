@@ -16,8 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
 
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.*;
+import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(MockitoJUnitRunner.class)
 public class CustomerServiceTest {
     CustomerService customerService;
@@ -50,5 +52,21 @@ public class CustomerServiceTest {
         customerService.createCustomer(customerMapper.mapToCustomerDto(customer));
         //Then
         verify(customerRepository, times(1)).save(customer);
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowPeselNotFoundException(){
+        //Given
+        CustomerDto customerDto = new CustomerDto();
+        //When
+        customerService.createCustomer(customerDto);
+    }
+    @Test
+    public void shouldGetCustomerByPeselTest(){
+        //Given
+        Customer customer = new Customer("66150212345", "Andrzej", "Kowalski", 77);;
+        when(customerRepository.findByPesel("66150212345")).thenReturn(customer);
+        //When
+        CustomerDto myCustomerDto = customerService.findCustomerByPesel("66150212345");
+        assertThat(myCustomerDto.getPesel()).isEqualTo(customer.getPesel());
     }
 }

@@ -14,7 +14,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public List<ProductDto> getProducts(@RequestParam List<Integer>creditIds) {
+    public List<ProductDto> getProducts(@RequestParam List<Integer> creditIds) {
         return productService.getProducts(creditIds);
     }
 

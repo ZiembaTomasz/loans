@@ -1,11 +1,9 @@
 package com.ziembatomasz.loans.customer.controller;
 
-import com.ziembatomasz.loans.customer.domain.Customer;
 import com.ziembatomasz.loans.customer.dto.CustomerDto;
 import com.ziembatomasz.loans.customer.service.CustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -15,11 +13,17 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public List<CustomerDto> getCustomers(@RequestParam List<Integer>creditsId) {
-        return customerService.getCustomers(creditsId);
+    public List<CustomerDto> getCustomers(@RequestParam List<Integer> creditIds) {
+        return customerService.getCustomers(creditIds);
     }
+
     @PostMapping
-    public void createCustomer(@RequestBody CustomerDto customerDto){
+    public void createCustomer(@RequestBody CustomerDto customerDto) {
         customerService.createCustomer(customerDto);
+    }
+
+    @GetMapping(value = "getCustomerByPesel")
+    public CustomerDto getCustomer(@RequestParam String pesel) {
+        return customerService.findCustomerByPesel(pesel);
     }
 }

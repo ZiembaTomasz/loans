@@ -24,24 +24,26 @@ public class ProductServiceTest {
     ProductMapper productMapper = new ProductMapper();
 
     @Before
-    public void createProductServiceObject(){
+    public void createProductServiceObject() {
         productService = new ProductService(productRepository, productMapper);
     }
+
     @Test
-    public void shouldGetProductsTest(){
+    public void shouldGetProductsTest() {
         //Given
-        List<Product>products = new ArrayList<>();
+        List<Product> products = new ArrayList<>();
         List<Integer> ids = new ArrayList<>();
         Product product = new Product("Good Credit", 20000, 7);
         products.add(product);
         when(productRepository.findByCreditIdIn(ids)).thenReturn(products);
         //When
-        List<ProductDto>myProducts = productService.getProducts(ids);
+        List<ProductDto> myProducts = productService.getProducts(ids);
         //Then
         assertEquals(1, myProducts.size());
     }
+
     @Test
-    public void shouldCreateProductTest(){
+    public void shouldCreateProductTest() {
         //Given
         Product product = new Product("Good Credit", 20000, 7);
         //When
@@ -50,5 +52,11 @@ public class ProductServiceTest {
         verify(productRepository, times(1)).save(product);
     }
 
-
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowException() {
+        //Given
+        ProductDto productDto = new ProductDto();
+        //When
+        productService.createProduct(productDto);
+    }
 }

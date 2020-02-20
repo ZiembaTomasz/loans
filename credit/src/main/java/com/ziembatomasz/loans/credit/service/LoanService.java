@@ -8,23 +8,25 @@ import com.ziembatomasz.loans.credit.dto.LoanDto;
 import com.ziembatomasz.loans.credit.dto.ProductDto;
 
 import lombok.AllArgsConstructor;
-import org.hibernate.validator.internal.util.Contracts;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Service
 public class LoanService {
+
     private CreditService creditService;
     private CustomerClient customerClient;
     private ProductClient productClient;
 
-
     public void createLoan(LoanDto loanDto) {
-        Contracts.assertTrue(loanDto.getCredit().getId() == null, "Credit with this id already exists");
+        Assert.isNull(loanDto.getCredit().getId(), "Cannot save credit with id present");
         CreditDto savedCredit = creditService.createCredit(loanDto.getCredit());
         loanDto.getCustomer().setCreditId(savedCredit.getId());
         loanDto.getProduct().setCreditId(savedCredit.getId());
@@ -35,7 +37,7 @@ public class LoanService {
     public List<LoanDto> getLoan() {
         List<LoanDto> loanDtos = new ArrayList<>();
         List<CreditDto> creditDtos = creditService.getCredits();
-        List<Integer>creditIds = creditDtos.stream()
+        List<Integer> creditIds = creditDtos.stream()
                 .map(CreditDto::getId)
                 .collect(Collectors.toList());
         List<CustomerDto> customerDtos = customerClient.getCustomers(creditIds);

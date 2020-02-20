@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 
 import lombok.Data;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class ProductService {
     }
 
     public void createProduct(ProductDto productDto){
+        Assert.notNull(productDto.getProductName(), "Cannot create product without a name");
         Product product = productMapper.mapToProduct(productDto);
         productRepository.save(product);
     }

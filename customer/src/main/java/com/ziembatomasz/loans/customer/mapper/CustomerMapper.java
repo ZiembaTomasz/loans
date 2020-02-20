@@ -4,7 +4,6 @@ import com.ziembatomasz.loans.customer.domain.Customer;
 import com.ziembatomasz.loans.customer.dto.CustomerDto;
 import org.springframework.stereotype.Component;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +19,8 @@ public class CustomerMapper {
         return new CustomerDto(customer.getPesel(), customer.getFirstName(),
                 customer.getSurname(), customer.getCreditId());
     }
-    public Customer mapToCustomer(CustomerDto customerDto){
+
+    public Customer mapToCustomer(CustomerDto customerDto) {
         return new Customer(customerDto.getPesel(), customerDto.getFirstName(),
                 customerDto.getSurname(), customerDto.getCreditId());
     }

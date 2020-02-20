@@ -12,7 +12,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -46,7 +45,8 @@ public class CreditServiceTest {
     public void shouldCreateCreditTest() {
         //Given
         CreditDto creditDto = new CreditDto(7, "Fast Loan");
-        when(creditRepository.findById(7)).thenReturn(Optional.of(creditMapper.mapToCredit(creditDto)));
+        Credit credit = creditMapper.mapToCredit(creditDto);
+        when(creditRepository.save(credit)).thenReturn(credit);
         //When
         CreditDto resultCredit = creditService.createCredit(creditDto);
         //Then
