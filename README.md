@@ -1,3 +1,5 @@
+![github](https://user-images.githubusercontent.com/40741056/74937413-4304d980-53ec-11ea-8010-58655042feb5.jpg)
+
 # About
 
 ##### REST API  microservices application uses Databases(MySQL) and Spring Boot. 
@@ -24,13 +26,13 @@
 
 ____________________________________________________________________________________________________________
   ####  Get Credits 
-  #####Method returns a json data about a list of all credits and their customers and products:
+  ##### Method returns a json data about a list of all credits and their customers and products:
   * URL    ---------------------> /credit              
 * Method   ----------------> GET
 * Succes Response --> Code 200
 
  #### Create Credit
-  #####Method creates new credit with customer and product:
+  ##### Method creates new credit with customer and product:
  * URL ------------------------> /credit   
 * Method -------------------> POST
 * Data Params  
@@ -52,14 +54,14 @@ ________________________________________________________________________________
 
 ___________________________________________________________________________________________________________________________________________
 #### Get Customers
-#####Method returns a json data with a list of all customers:
+##### Method returns a json data with a list of all customers:
 * URL ------------------------>/customer
 * Method -------------------> GET
 * URL Params-------------> creditIds=integer, integer...
 * Succes Response------> Code 200
 
 #### Create Customer
-#####Method creates customer:
+##### Method creates customer:
 * URL -------------------->/customer
 * Method --------------->POST
 * Data Params:
@@ -74,21 +76,21 @@ ________________________________________________________________________________
 * Succes Response ---> Code 200 
 
 #### Get Customer By Pesel
-#####Method returns a json data about Customer found by Pesel:
+##### Method returns a json data about Customer found by Pesel:
 * URL --------------------> /customer/getCustomerByPesel
 * Method ---------------> GET
 * URL Params ---------> pesel=integer
 * Succes Response --> Code 200
 --------------------------------------------------------------------------------------------------------
-####Get Products
-#####Method returns a json data with a list of all products:
+#### Get Products
+##### Method returns a json data with a list of all products:
 * URL  ----------------------->/product
 * Method ------------------> GET
 * URL Params------------> creditIds=integer, integer...
 * Succes Response ----> Code 200
 
-####Create Product
-#####Method creates product:
+#### Create Product
+##### Method creates product:
 * URL -------------------->/product
 * Method ---------------> POST
 * Data Params:  
