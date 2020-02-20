@@ -1,4 +1,4 @@
-FROM mysql
+FROM mysql:5.7.29
 
 ENV MYSQL_ROOT_PASSWORD my-password
 
