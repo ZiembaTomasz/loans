@@ -81,7 +81,7 @@ http://localhost:8080/credit
 
 ___________________________________________________________________________________________________________________________________________
 #### Get_Customers
-##### Method provides credit numbers for which customers should be returned as a json data:
+##### Method returns a json data about list of customers given by credit id:
 * GET  
 * Example Request:
 ````
@@ -131,7 +131,7 @@ http://localhost:8081/customer
 * Succes Response: Code 200 
 
 #### Get_Customer_By_Pesel
-##### Method returns a json data about Customer found by Pesel:
+##### Method returns a json data about customer found by pesel:
 * GET
 * Example Request:
 ````
@@ -149,7 +149,7 @@ http://localhost:8081/customer/getCustomerByPesel?pesel=70071724933
 * Succes Response: Code 200
 --------------------------------------------------------------------------------------------------------
 #### Get_Products
-##### Method provides credit numbers for which products should be returned as a json data:
+##### Method returns a json data about list of products given by credit id:
 * GET 
 * Example Request:
 ````
